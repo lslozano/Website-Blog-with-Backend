@@ -32,10 +32,7 @@ app.set('view engine', 'ejs');
 app.use("/", require('./routes/index'));
 app.use("/about", require('./routes/index'));
 app.use("/contact", require('./routes/index'));
-
-app.get("/compose", function(req, res){
-  res.render("compose");
-});
+app.use("/compose", require('./routes/index'));
 
 app.get("/posts/:postName", function(req, res){
   const requestedTitle = lowerCase(req.params.postName);

@@ -8,7 +8,7 @@ exports.getStartingContent = (req, res) => {
   res.render("home", {
     startingContent: homeStartingContent,
     postsList: postsSchema.posts
-    });
+    })
 };
 
 exports.getAboutContent = (req, res) => {
@@ -21,4 +21,8 @@ exports.getContactContent = (req, res) => {
   res.render("contact", {
     contactContent: contactContent
   })
-}
+};
+
+exports.getCompose = (req, res) => {
+  res.render("compose")
+};
