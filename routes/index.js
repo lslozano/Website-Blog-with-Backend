@@ -2,9 +2,14 @@ const { Router } = require('express');
 const router = Router();
 
 const {
-  getStartingContent
+  getStartingContent,
+  getAboutContent,
+  getContactContent
 } = require('../controllers/getControllers');
 
-router.get("/", getStartingContent);
+router
+  .get("/", getStartingContent)
+  .get("/about", getAboutContent)
+  .get("/contact", getContactContent);
 
 module.exports = router;
