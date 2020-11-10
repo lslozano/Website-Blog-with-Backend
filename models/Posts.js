@@ -1,12 +1,9 @@
 const { model, Schema } = require('mongoose');
 
+const postSchema = require('../schema/PostSchema');
+
 const postsSchema = new Schema ({
-  posts: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'Post'
-    }
-  ]
+  posts: [postSchema]
 })
 
 module.exports = model("Posts", postsSchema);

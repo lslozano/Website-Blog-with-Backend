@@ -8,10 +8,15 @@ const {
   getCompose
 } = require('../controllers/getControllers');
 
+const {
+  composePost
+} = require('../controllers/postControllers');
+
 router
   .get("/", getStartingContent)
   .get("/about", getAboutContent)
   .get("/contact", getContactContent)
-  .get("/compose", getCompose);
+  .get("/compose", getCompose)
+  .post("/compose", composePost);
 
 module.exports = router;

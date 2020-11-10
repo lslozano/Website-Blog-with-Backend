@@ -34,32 +34,21 @@ app.use("/about", require('./routes/index'));
 app.use("/contact", require('./routes/index'));
 app.use("/compose", require('./routes/index'));
 
-app.get("/posts/:postName", function(req, res){
-  const requestedTitle = lowerCase(req.params.postName);
 
-  posts.forEach(function(post){
-    const storedTitle = lowerCase(post.title);
 
-    if (storedTitle === requestedTitle) {
-      res.render("post", {
-        title: post.title,
-        content: post.content
-      });
-    }
-  });
-});
+// app.get("/posts/:postName", function(req, res){
+//   const requestedTitle = lowerCase(req.params.postName);
 
-app.post("/compose", function(req, res){
-  const post = {
-    title: req.body.postTitle,
-    content: req.body.postBody
-  };
+//   posts.forEach(function(post){
+//     const storedTitle = lowerCase(post.title);
 
-  posts.push(post);
+//     if (storedTitle === requestedTitle) {
+//       res.render("post", {
+//         title: post.title,
+//         content: post.content
+//       });
+//     }
+//   });
+// });
 
-  res.redirect("/");
-});
-
-app.listen(port, function() {
-  console.log(`Server started on port ${port}`);
-});
+app.listen(port, () => console.log(`Server started on port ${port}`));
