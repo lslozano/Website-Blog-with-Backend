@@ -1,5 +1,4 @@
 const Post = require('../models/Post');
-// const Posts = require('../models/Posts');
 
 exports.composePost = async (req, res) => {
   const postTitle = req.body.postTitle
@@ -15,3 +14,4 @@ exports.composePost = async (req, res) => {
     res.redirect("/");
   })
 };
+ 
