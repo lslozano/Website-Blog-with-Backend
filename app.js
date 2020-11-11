@@ -4,6 +4,7 @@ require('dotenv').config();
 const express     = require('express');
 const bodyParser  = require('body-parser');
 const mongoose    = require('mongoose');
+const routes      = require('./routes/index');
 
 const port = process.env.PORT || 3000;
 const db = process.env.DB;
@@ -27,10 +28,10 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 app.set('view engine', 'ejs');
 
-app.use("/", require('./routes/index'));
-app.use("/about", require('./routes/index'));
-app.use("/contact", require('./routes/index'));
-app.use("/compose", require('./routes/index'));
-app.use("/posts/:id", require('./routes/index'));
+app.use("/", routes);
+app.use("/about", routes);
+app.use("/contact", routes);
+app.use("/compose", routes);
+app.use("/posts/:postId", routes);
 
 app.listen(port, () => console.log(`Server started on port ${port}`));
