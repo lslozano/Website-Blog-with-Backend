@@ -55,18 +55,3 @@ exports.getPost = async (req, res) => {
     }
   })
 };
-
-// app.get("/posts/:postId", function(req, res){
-//   const postId = lowerCase(req.params.postId);
-
-//   posts.forEach(function(post){
-//     const storedTitle = lowerCase(post.title);
-
-//     if (storedTitle === requestedTitle) {
-//       res.render("post", {
-//         title: post.title,
-//         content: post.content
-//       });
-//     }
-//   });
-// });

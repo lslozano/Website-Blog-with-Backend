@@ -10,7 +10,6 @@ const db = process.env.DB;
 
 const app = express();
 
-// CONNECTION
 mongoose
   .connect(db, {
     useUnifiedTopology: true,
