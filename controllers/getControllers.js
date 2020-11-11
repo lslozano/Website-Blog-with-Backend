@@ -39,3 +39,34 @@ exports.getContactContent = (req, res) => {
 exports.getCompose = (req, res) => {
   res.render("compose")
 };
+
+exports.getPost = async (req, res) => {
+  const requestedPostId = req.params.postId;
+
+  await Post.findById(requestedPostId, (err, post) => {
+    const storedPostId = post._id;
+    if (err) {
+      return `${err}. There was an error. Could not find the id.`;
+    } else if (requestedPostId == storedPostId) {
+      res.render("post", {
+        title: post.title,
+        content: post.content
+      })
+    }
+  })
+};
+
+// app.get("/posts/:postId", function(req, res){
+//   const postId = lowerCase(req.params.postId);
+
+//   posts.forEach(function(post){
+//     const storedTitle = lowerCase(post.title);
+
+//     if (storedTitle === requestedTitle) {
+//       res.render("post", {
+//         title: post.title,
+//         content: post.content
+//       });
+//     }
+//   });
+// });

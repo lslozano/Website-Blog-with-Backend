@@ -3,7 +3,6 @@ require('dotenv').config();
 
 const express     = require('express');
 const bodyParser  = require('body-parser');
-const lowerCase   = require('lodash');
 const mongoose    = require('mongoose');
 
 const port = process.env.PORT || 3000;
@@ -33,5 +32,6 @@ app.use("/", require('./routes/index'));
 app.use("/about", require('./routes/index'));
 app.use("/contact", require('./routes/index'));
 app.use("/compose", require('./routes/index'));
+app.use("/posts/:id", require('./routes/index'));
 
 app.listen(port, () => console.log(`Server started on port ${port}`));

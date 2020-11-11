@@ -5,7 +5,8 @@ const {
   getStartingContent,
   getAboutContent,
   getContactContent,
-  getCompose
+  getCompose,
+  getPost
 } = require('../controllers/getControllers');
 
 const {
@@ -17,6 +18,7 @@ router
   .get("/about", getAboutContent)
   .get("/contact", getContactContent)
   .get("/compose", getCompose)
-  .post("/compose", composePost);
+  .post("/compose", composePost)
+  .get("/posts/:postId", getPost);
 
 module.exports = router;
